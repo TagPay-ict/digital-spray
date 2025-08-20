@@ -2,6 +2,9 @@
 
 echo "🔍 Running pre-commit checks..."
 
+# Run linting
+npm run lint
+
 # Run type checking
 npm run type-check
 

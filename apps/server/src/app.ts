@@ -2,10 +2,11 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
+import http from "http";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-
+const server = http.createServer(app);
 
 app.use(helmet());
 app.use(cors());
@@ -21,6 +22,7 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "OK", timestamp: new Date().toISOString() });
 });
 
+// Error handling middleware
 app.use(
   (
     err: Error,
@@ -30,6 +32,7 @@ app.use(
   ) => {
     console.error(err.stack);
     res.status(500).json({ error: "Something went wrong!" });
+    next();
   }
 );
 
@@ -40,3 +43,10 @@ app.use("*", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
+
+
+
+export {
+  app,
+  server,
+}
