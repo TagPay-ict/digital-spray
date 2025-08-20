@@ -37,10 +37,6 @@ To develop all apps and packages, run the following command:
 npm run dev
 ```
 
-## Commit Conventions
-
-This project uses [Conventional Commits](https://www.conventionalcommits.org/) for commit messages. All commits are automatically validated using commitlint and husky.
-
 ### Commit Message Format
 
 ```
