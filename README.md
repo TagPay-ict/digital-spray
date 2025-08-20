@@ -75,24 +75,35 @@ This project uses [Conventional Commits](https://www.conventionalcommits.org/) f
 - `build`: Changes that affect the build system or external dependencies
 - `revert`: Reverts a previous commit
 
+### Scopes
+
+Scopes are **required** and must be one of:
+
+- `client`: Frontend/React app changes
+- `server`: Backend/Express server changes  
+- `infra`: Infrastructure, deployment, config changes
+- `global`: Changes affecting the entire monorepo
+
 ### Examples
 
 ```bash
-# Feature
-git commit -m "feat: add user authentication"
+# Feature with scope
+git commit -m "feat(client): add user authentication"
 
-# Bug fix
-git commit -m "fix: resolve login form validation issue"
+# Bug fix with scope
+git commit -m "fix(server): resolve database connection issue"
 
-# Documentation
-git commit -m "docs: update API documentation"
+# Documentation with scope
+git commit -m "docs(global): update API documentation"
 
-# Style changes
-git commit -m "style: format code with prettier"
+# Style changes with scope
+git commit -m "style(client): format components with prettier"
 
-# With scope
-git commit -m "feat(client): add dark mode toggle"
-git commit -m "fix(server): handle database connection errors"
+# Infrastructure changes
+git commit -m "chore(infra): update docker configuration"
+
+# Global changes
+git commit -m "feat(global): setup commitlint and husky"
 ```
 
 ### Pre-commit Hooks

@@ -1,27 +1,13 @@
-import js from '@eslint/js';
-import globals from 'globals';
+import { config } from "../../packages/eslint-config/base.js";
 
 export default [
-  js.configs.recommended,
+  ...config,
   {
+    files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {
-      globals: {
-        ...globals.node,
-        ...globals.es2020,
-      },
       parserOptions: {
-        ecmaVersion: 2020,
-        sourceType: 'module',
+        project: './tsconfig.json',
       },
     },
-    rules: {
-      'no-unused-vars': 'off', // TypeScript handles this
-      'no-console': 'warn',
-      'prefer-const': 'error',
-      'no-var': 'error',
-    },
-  },
-  {
-    ignores: ['dist/**', 'node_modules/**'],
   },
 ];

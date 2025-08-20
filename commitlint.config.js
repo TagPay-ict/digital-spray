@@ -18,6 +18,18 @@ module.exports = {
         'revert',   // Revert previous commits
       ],
     ],
+    'scope-enum': [
+      2,
+      'always',
+      [
+        'client',   // Frontend/React app changes
+        'server',   // Backend/Express server changes
+        'infra',    // Infrastructure, deployment, config changes
+        'global',   // Changes affecting the entire monorepo
+      ],
+    ],
+    'scope-case': [2, 'always', 'lower-case'],
+    'scope-empty': [2, 'never'],
     'type-case': [2, 'always', 'lower-case'],
     'type-empty': [2, 'never'],
     'subject-case': [2, 'always', 'lower-case'],

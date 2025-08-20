@@ -21,6 +21,7 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "OK", timestamp: new Date().toISOString() });
 });
 
+// Error handling middleware
 app.use(
   (
     err: Error,
@@ -30,6 +31,7 @@ app.use(
   ) => {
     console.error(err.stack);
     res.status(500).json({ error: "Something went wrong!" });
+    next();
   }
 );
 
