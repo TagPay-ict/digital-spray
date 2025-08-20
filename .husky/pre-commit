@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+echo "🔍 Running pre-commit checks..."
+
+# Run type checking
+npm run type-check
+
+echo "✅ Pre-commit checks passed!"
